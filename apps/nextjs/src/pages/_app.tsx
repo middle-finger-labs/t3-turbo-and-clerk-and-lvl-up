@@ -9,7 +9,6 @@ import { config } from "../utils/config";
 const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
   return (
     <ClerkProvider {...pageProps}>
-      {/* TODO: Add some protection to ensure the api key is defined in ts */}
       <LvlUpProvider apiKey={config.lvlUpKey} {...pageProps}>
         <Component {...pageProps} />
       </LvlUpProvider>
