@@ -7,6 +7,14 @@
 
 /** @type {import("next").NextConfig} */
 const config = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lvl-up.s3.us-east-1.amazonaws.com",
+      },
+    ],
+  },
   reactStrictMode: true,
   swcMinify: true,
   transpilePackages: ["@acme/api", "@acme/db"],
