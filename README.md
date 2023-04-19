@@ -1,6 +1,10 @@
 [![CI](https://github.com/perkinsjr/t3-turbo-and-clerk/actions/workflows/ci.yml/badge.svg)](https://github.com/perkinsjr/t3-turbo-and-clerk/actions/workflows/ci.yml)
 
-# Create T3 Turbo with Clerk Authentication
+# Create T3 Turbo with Clerk Authentication and Lvl Up Gamification
+
+## Lvl Up Setup
+
+For this template to work you will need to create a Lvl Up account. You can find the Lvl Up dashboard [here](https://app.lvl-up.xyz/). Once you have created an account you can add events and rewards to your account.
 
 ## Clerk Dashboard Setup
 
@@ -103,7 +107,7 @@ Let's deploy the Next.js application to [Vercel](https://vercel.com/). If you ha
 
 > The install command filters out the expo package and saves a few second (and cache size) of dependency installation. The build command makes us build the application using Turbo.
 
-2. Add your `DATABASE_URL`,`NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` environment variable.
+2. Add your `DATABASE_URL`,`NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`, `NEXT_PUBLIC_LVL_UP_API_KEY` and `LVL_UP_API_KEY` environment variable.
 
 3. Done! Your app should successfully deploy. Assign your domain and use that instead of `localhost` for the `url` in the Expo app so that your Expo app can communicate with your backend when you are not in development.
 
@@ -151,12 +155,13 @@ Deploying your Expo application works slightly differently compared to Next.js o
    import { ExpoConfig, ConfigContext } from "@expo/config";
 
    const CLERK_PUBLISHABLE_KEY = "your-clerk-publishable-key";
+   const LVL_UP_API_KEY = "your-lvl-up-api-key";
 
    const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
-      name: "expo",
-      slug: "expo",
-      scheme: "your-app-scheme",
-      // ...
+     name: "expo",
+     slug: "expo",
+     scheme: "your-app-scheme",
+     // ...
    });
    ```
 
@@ -185,9 +190,9 @@ Deploying your Expo application works slightly differently compared to Next.js o
    $ eas update:configure
    ```
 
-6. Before we can send out updates to your app, you have to create a new build and submit it to the app stores. For every change that includes native APIs, you have to rebuild the app and submit the update to the app stores. See steps 2 and 3.
+7. Before we can send out updates to your app, you have to create a new build and submit it to the app stores. For every change that includes native APIs, you have to rebuild the app and submit the update to the app stores. See steps 2 and 3.
 
-7. Now that everything is ready for updates, let's create a new update for `production` builds. With the `--auto` flag, EAS Update uses your current git branch name and commit message for this update. See [How EAS Update works](https://docs.expo.dev/eas-update/how-eas-update-works/#publishing-an-update) for more information.
+8. Now that everything is ready for updates, let's create a new update for `production` builds. With the `--auto` flag, EAS Update uses your current git branch name and commit message for this update. See [How EAS Update works](https://docs.expo.dev/eas-update/how-eas-update-works/#publishing-an-update) for more information.
 
    ```bash
    $ cd apps/expo
@@ -196,7 +201,7 @@ Deploying your Expo application works slightly differently compared to Next.js o
 
    > Your OTA (Over The Air) updates must always follow the app store's rules. You can't change your app's primary functionality without getting app store approval. But this is a fast way to update your app for minor changes and bug fixes.
 
-8. Done! Now that you have created your production build, submitted it to the stores, and installed EAS Update, you are ready for anything!
+9. Done! Now that you have created your production build, submitted it to the stores, and installed EAS Update, you are ready for anything!
 
 ## References
 

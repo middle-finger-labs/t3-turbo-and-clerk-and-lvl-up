@@ -1,7 +1,7 @@
 import { ExpoConfig, ConfigContext } from "@expo/config";
 
-const CLERK_PUBLISHABLE_KEY =
-  "pk_test_Y29vbC1zaGFyay0yLmNsZXJrLmFjY291bnRzLmRldiQ";
+const CLERK_PUBLISHABLE_KEY = "your-clerk-publishable-key";
+const LVL_UP_KEY = "your-lvl-up-key";
 
 const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
   name: "expo",
@@ -34,6 +34,7 @@ const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
       projectId: "your-project-id",
     },
     CLERK_PUBLISHABLE_KEY,
+    LVL_UP_KEY,
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],
 });
